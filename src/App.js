@@ -1,25 +1,42 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import { Main, Header, Logo, Title, Intro } from './App.styles';
+import Inner from './Inner';
+import PropTypes from 'prop-types';
 
 class App extends Component {
-  setName(name){
+
+  state = {
+    name: "Serg"
+  }
+
+  static childContextTypes = {
+    currentUser: PropTypes.string
+  };
+
+  getChildContext(name = "Serg") {
+    return {currentUser: this.state.name};
+  }
+
+  changeContext() {
     this.setState({
-      [name]: name
-    })
+      name: this.state.name === "Serg" ? "Bob" : "Serg"
+    });
   }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro" onClick={() => this.setName(123)}>
+      <Main>
+        <Inner></Inner>
+        <Header>
+          <Logo src={logo} alt="logo" />
+          <Title>Welcome to React</Title>
+        </Header>
+        <Intro>
           To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+        </Intro>
+        <button onClick={() => {this.changeContext()}}>Click me</button>
+      </Main>
     );
   }
 }
