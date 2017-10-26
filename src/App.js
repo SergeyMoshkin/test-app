@@ -8,7 +8,7 @@ class App extends Component {
 
   state = {
     name: "Serg"
-  }
+  };
 
   static childContextTypes = {
     currentUser: PropTypes.string
@@ -27,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <Main>
-        <Inner></Inner>
+        <Inner/>
         <Header>
           <Logo src={logo} alt="logo" />
           <Title>Welcome to React</Title>

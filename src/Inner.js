@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import ContextDiv from './Inner.styles';
 
-class Inner extends Component {
+const Inner =  (props, context) =>  {
+  const { currentUser } = context;
+  return (
+    <ContextDiv background={currentUser}>Current "context": {currentUser}</ContextDiv>
+  );
+};
 
-  static contextTypes = {
-    currentUser: PropTypes.string
-  };
-
-  render() {
-    const { currentUser } = this.context;
-    return (
-      <ContextDiv background={currentUser}>Current "context": {currentUser}</ContextDiv>
-    );
-  }
-}
+Inner.contextTypes = {
+  currentUser: PropTypes.string
+};
 
 export default Inner;
