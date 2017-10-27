@@ -1,8 +1,8 @@
 import styled, { keyframes } from 'styled-components';
 
 const ContextDiv = styled.div`
-  background: ${props => props.background === "Serg" ? "#fcd" : "#63004d"};
-  color: ${props => props.background === "Serg" ? "#000" : "#fff"};
+  background: ${props => props.background === "Loh" ? "#fcd" : "#63004d"};
+  color: ${props => props.background === "Loh" ? "#000" : "#fff"};
   padding: 20px;
 `;
 

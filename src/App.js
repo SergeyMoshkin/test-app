@@ -7,20 +7,20 @@ import PropTypes from 'prop-types';
 class App extends Component {
 
   state = {
-    name: "Serg"
+    name: "Loh"
   };
 
   static childContextTypes = {
     currentUser: PropTypes.string
   };
 
-  getChildContext(name = "Serg") {
+  getChildContext(name = "Loh") {
     return {currentUser: this.state.name};
   }
 
   changeContext() {
     this.setState({
-      name: this.state.name === "Serg" ? "Bob" : "Serg"
+      name: this.state.name === "Loh" ? "NeLoh" : "Loh"
     });
   }
 
